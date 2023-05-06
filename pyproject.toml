@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "el_decko_backend_keystroke"
+authors = [
+  { name="Imo 'Vortex Acherontic' Hester", email="vortex@z-ray.de" },
+]
+dynamic = ["version"]
+readme = "README.md"
+description = "El Decko backend to emulate keyboard shortcuts and button press"
+license = { text = "GPL-3" }
+requires-python = ">=3.8"
+dependencies = [
+    "keyboard"
+]
+
+[project.entry-points."eldecko.backend"]
+init = "edb_keystroke:edb_init"
+stop = "edb_keystroke:edb_stop"
+fire = "edb_keystroke:edb_fire_event"
+events = "edb_keystroke:edb_available_events"
+
+[project.urls]
+"Homepage" = "https://github.com/Z-Ray-Entertainment/el_decko_backend_keystroke"
+"Bug Tracker" = "https://github.com/Z-Ray-Entertainment/el_decko_backend_keystroke/issues"
+
+[tool.setuptools.dynamic]
+version = { attr = "edb_keystroke.VERSION" }
+
+[tool.setuptools]
+include-package-data = true
+platforms = ["Linux"]
